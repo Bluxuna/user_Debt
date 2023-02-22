@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Flask and SQLite </title>
+		<style>
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			th, td {
+				padding: 8px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+			}
+			tr:hover {background-color:#f5f5f5;}
+			th {
+				background-color: #24045fb2;
+				color: white;
+			}
+			h1 {
+				font-size: 24px;
+				margin-bottom: 10px;
+			}
+			a {
+				text-decoration: none;
+				color: #24045fb2;
+				font-weight: bold;
+				font-size: 18px;
+				border: 2px solid #24045fb2;
+				padding: 10px;
+				border-radius: 5px;
+				transition: background-color 0.3s ease;
+			}
+			a:hover {
+				background-color: #24045fb2;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Phone Number</th>
+					<th>Debt</th>
+					<th>VALUES</th>
+				</tr>
+			</thead>
+			<tbody>
+				{%for participant in data%}
+				<tr>
+					<td>{{participant[0]}}</td>
+					<td>{{participant[1]}}</td>
+					<td>{{participant[2]}}</td>
+					<td>{{participant[3]}}</td>
+					<td>{{participant[4]}}</td>
+				</tr>
+				{%endfor%}
+			</tbody>
+		</table>
+		<center>
+			<h1><a href="/home">Home</a></h1>
+			<h1><a href="/join">Add User</a></h1>
+		</center>
+	</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Users</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #24045fb2;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			color: #eaeaea;
+			font-size: 2em;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		form {
+			background-color: #fff;
+			margin: 20px auto;
+			padding: 20px;
+			width: 400px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		input[type="text"] {
+			display: block;
+			margin-bottom: 20px;
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-size: 1em;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		input[type="submit"] {
+			background-color:#221f1f;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			font-size: 1.2em;
+			padding: 10px;
+			border-radius: 5px;
+			width: 100%;
+			transition: background-color 0.3s;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		input[type="submit"] {
+			background-color:#221f1f;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			font-size: 1.2em;
+			padding: 10px;
+			border-radius: 5px;
+			width: 100%;
+			transition: background-color 0.3s;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		input[type="submit"]:hover {
+			background-color: #3E8E41;
+		}
+	</style>
+</head>
+<body>
+	
+
+    <form action="/search" method="POST">
+        <label for="search_usr">Enter User Name:</label>
+        <input type="text" name="search_usr" id="search_usr">
+        <button type="submit">Search</button>
+		
+    </form>
+<center>
+    {% if not_found == True %}
+        <p>User not found</p>
+		<h1>{{ message }}</h1>
+    {% elif data %}
+			<h1>{{x}}</h1>
+			
+    
+	<h1  id = "amount" style="display : none">{{y}}</h1>
+	<h1 id ="from" style="display : none">{{z}}</h1>
+	<select id="to">
+		<option value="₾">₾</option>
+		<option value="$">$</option>
+		<option value="€">€</option>
+		<option value="£">£</option>
+	  </select>
+	{% endif %}
+	<button onclick="convert()">Convert</button>
+	<label style="color: white;">Result:</label>
+	<span id="result" style="color: white;"></span>
+	<span id="symbol" style="color: white;"></span>
+
+
+</center>
+<script type="text/javascript">
+    function convert(){
+        // Get input values
+        var amount = parseInt(document.getElementById("amount").innerHTML);
+        var from = document.getElementById("from").innerHTML;
+        var to = document.getElementById("to").value;
+		console.log(amount," ",from," ",to)
+    var result=1;
+    if(from == "₾" && to == "$"){
+         result = amount * 0.31;
+    } else if(from == "₾" && to == "€"){
+         result = amount * 0.26;
+    } else if(from == "₾" && to == "£"){
+         result = amount * 0.23;
+    } else if(from == "$" && to == "₾"){
+         result = amount * 3.20;
+    } else if(from == "$" && to == "€"){
+         result = amount * 0.85;
+    } else if(from == "$" && to == "£"){
+         result = amount * 0.75;
+    } else if(from == "€" && to == "₾"){
+         result = amount * 3.87;
+    } else if(from == "€" && to == "$"){
+         result = amount * 1.17;
+    } else if(from == "€" && to == "£"){
+         result = amount * 0.88;
+    } else if(from == "£" && to == "₾"){
+         result = amount * 4.30;
+    } else if(from == "£" && to == "$"){
+         result = amount * 1.33;
+    } else if(from == "£" && to == "€"){
+         result = amount * 1.14;
+    }
+	
+    // Display result
+    document.getElementById("result").innerHTML = result.toFixed(2);
+	document.getElementById("symbol").innerHTML = to;
+	console.log(parseInt(result))
+}
+</script>
+</body>
+</html>

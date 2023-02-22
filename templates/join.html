@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>add user</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #24045fb2;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      form {
+        background-color: #eaeaea;
+        padding: 20px;
+        width: 410px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      input[type="name"],
+      input[type="tel"],
+      input[type="number"],
+      input[type="valute"] {
+        display: block;
+        margin-bottom: 20px;
+        width: 24.5rem;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+      }
+
+      input[type="submit"] {
+        background-color: #221f1f;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.2em;
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+        transition: background-color 0.3s;
+        margin-top: 1rem;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      @media screen and (max-width: 600px) {
+        form {
+          width: 350px;
+        }
+        input[type="name"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="valute"] {
+          width: 20.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST">
+      <label>Enter Name:</label>
+      <input
+        type="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      /><br />
+      <label>Enter surname:</label>
+      <input
+        type="name"
+        name="surname"
+        placeholder="Enter your surname"
+        required
+      /><br />
+      <label>Enter phone num:</label>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Your Phone Number"
+        required
+      /><br />
+      <label>Enter debt:</label>
+      <input type="number" name="debt" placeholder="Your debt" required /><br />
+      <label>Enter valute:</label>
+      <select id="valute-select" name="valute">
+        <option value="₾">₾</option>
+        <option value="$">$</option>
+        <option value="£">£</option>
+        <option value="€">€</option>
+      </select>
+      <input type="submit" value="submit" /><br />
+    </form>
+  </body>
+</html>
